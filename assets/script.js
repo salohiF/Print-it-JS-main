@@ -59,9 +59,20 @@ function moveSlide(){
     console.log(`Index courant : ${currentSlideIndex}`, `Index parcouru : ${i}`)
     if( i == currentSlideIndex ){
       slide.classList.add('active')
+      document.querySelector('.titre').innerHTML = "<p>" + slides[currentSlideIndex].tagLine + "</p>";
     }else if( slide.classList.contains('active') ){
        slide.classList.remove('active')
     }
+
+
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+      if (index === currentSlideIndex) {
+        dot.classList.add('dot_selected');
+      } else {
+        dot.classList.remove('dot_selected');
+      }
+    });
     
     //Créer un mouvement de déplacement 
     // node.style.nomPropriete = valeur
